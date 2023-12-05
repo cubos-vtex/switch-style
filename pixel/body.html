@@ -1,0 +1,21 @@
+<script>
+  const {
+    workspace,
+    query: { color },
+  } = __RUNTIME__
+
+  const possibleColors = ['red', 'green', 'magenta']
+
+  if (color && +color > 0 && +color < 4) {
+    const selectedColor = possibleColors[+color - 1]
+
+    const newStyle = document.createElement('style')
+
+    newStyle.innerHTML = `:root {
+      --background-action-primary: ${selectedColor};
+      --text-action-primary: ${selectedColor};
+      --border-action-primary: ${selectedColor};
+}`
+    document.head.appendChild(newStyle)
+  }
+</script>

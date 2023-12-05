@@ -1,0 +1,25 @@
+{
+  "memory": 1024,
+  "ttl": 300,
+  "timeout": 60,
+  "cpu": {
+    "type": "shared",
+    "value": 5,
+    "scalingPercentage": 20
+  },
+  "minReplicas": 8,
+  "maxReplicas": 80,
+  "workers": 1,
+  "routes": {
+    "globalStyleVars": {
+      "path": "/_v/global-style-vars.css",
+      "public": true,
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": ["get"]
+        }
+      ]
+    }
+  }
+}
