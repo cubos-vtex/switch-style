@@ -1,6 +1,7 @@
 {
   "vendor": "bravtexeletrostore",
   "name": "switch-style",
+  "title": "Switch Style",
   "description": "Provides a mechanism to switch between different styles",
   "version": "0.0.1",
   "builders": {
@@ -78,6 +79,22 @@
   ],
   "dependencies": {
     "vtex.styles-graphql": "1.x"
+  },
+  "settingsSchema": {
+    "title": "Switch Style",
+    "type": "object",
+    "properties": {
+      "colors": {
+        "title": "Possible Colors",
+        "description": "Enter valid CSS colors you want to parametrize separated by commas. Default: \"red,green,magenta\"",
+        "type": "string"
+      },
+      "parameter": {
+        "title": "Query parameter",
+        "description": "A query parameter that can be passed to storefront URL with a value corresponding to the color index of \"colors\" property based on order, initially 1. Default: \"color\"",
+        "type": "string"
+      }
+    }
   },
   "billingOptions": {
     "type": "free",

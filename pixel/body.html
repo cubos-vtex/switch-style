@@ -1,21 +1,29 @@
+<!-- Init Switch Style Script -->
 <script>
-  const {
-    workspace,
-    query: { color },
-  } = __RUNTIME__
+  const { query } = __RUNTIME__
+  const parameter = decodeURIComponent('{{settings.parameter}}' || 'color')
+  const colors = decodeURIComponent(
+    '{{settings.colors}}' || 'red,green,magenta'
+  )
+  const color = query[parameter]
+  const possibleColors = colors?.split(',') || []
+  const length = possibleColors.length
 
-  const possibleColors = ['red', 'green', 'magenta']
+  if (length && color && +color > 0 && +color < length + 1) {
+    const selectedColor = possibleColors[+color - 1]?.trim()
 
-  if (color && +color > 0 && +color < 4) {
-    const selectedColor = possibleColors[+color - 1]
+    if (selectedColor) {
+      const newStyle = document.createElement('style')
 
-    const newStyle = document.createElement('style')
+      newStyle.innerHTML = `:root {
+        --background-action-primary: ${selectedColor};
+        --background-emphasis: ${selectedColor};
+        --text-action-primary: ${selectedColor};
+        --border-action-primary: ${selectedColor};
+      }`
 
-    newStyle.innerHTML = `:root {
-      --background-action-primary: ${selectedColor};
-      --text-action-primary: ${selectedColor};
-      --border-action-primary: ${selectedColor};
-}`
-    document.head.appendChild(newStyle)
+      document.head.appendChild(newStyle)
+    }
   }
 </script>
+<!-- End Switch Style Script -->

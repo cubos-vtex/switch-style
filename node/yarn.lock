@@ -2194,10 +2194,6 @@ braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-"bravtexeletrostore.switch-style@https://dev--bravtexeletrostore.myvtex.com/_v/private/typings/linked/v1/bravtexeletrostore.switch-style@0.0.0+build1701783971/public/_types/react":
-  version "0.0.0"
-  resolved "https://dev--bravtexeletrostore.myvtex.com/_v/private/typings/linked/v1/bravtexeletrostore.switch-style@0.0.0+build1701783971/public/_types/react#fa7a0347e046eab3dd768998fc9252b2c0dd5aef"
-
 browser-process-hrtime@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/browser-process-hrtime/-/browser-process-hrtime-1.0.0.tgz#3c9b4b7d782c8121e56f10106d84c0d0ffc94626"
