@@ -3,7 +3,7 @@
   "name": "switch-style",
   "title": "Switch Style",
   "description": "Provides a mechanism to switch between different styles",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "builders": {
     "node": "6.x",
     "pixel": "0.x",
