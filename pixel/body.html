@@ -1,29 +1,33 @@
 <!-- Init Switch Style Script -->
-<script>
-  const { query } = __RUNTIME__
-  const parameter = decodeURIComponent('{{settings.parameter}}' || 'color')
-  const colors = decodeURIComponent(
-    '{{settings.colors}}' || 'red,green,magenta'
-  )
-  const color = query[parameter]
-  const possibleColors = colors?.split(',') || []
-  const length = possibleColors.length
+<script id="switch-style">
+  function switchStyle() {
+    const { query } = __RUNTIME__
+    const parameter = decodeURIComponent('{{settings.parameter}}' || 'color')
+    const colors = decodeURIComponent(
+      '{{settings.colors}}' || 'red,green,magenta'
+    )
+    const color = query[parameter]
+    const possibleColors = colors?.split(',') || []
+    const length = possibleColors.length
 
-  if (length && color && +color > 0 && +color < length + 1) {
-    const selectedColor = possibleColors[+color - 1]?.trim()
+    if (length && color && +color > 0 && +color < length + 1) {
+      const selectedColor = possibleColors[+color - 1]?.trim()
 
-    if (selectedColor) {
-      const newStyle = document.createElement('style')
+      if (selectedColor) {
+        const newStyle = document.createElement('style')
 
-      newStyle.innerHTML = `:root {
+        newStyle.innerHTML = `:root {
         --background-action-primary: ${selectedColor};
         --background-emphasis: ${selectedColor};
         --text-action-primary: ${selectedColor};
         --border-action-primary: ${selectedColor};
       }`
 
-      document.head.appendChild(newStyle)
+        document.head.appendChild(newStyle)
+      }
     }
   }
+
+  window.addEventListener('load', switchStyle)
 </script>
 <!-- End Switch Style Script -->
