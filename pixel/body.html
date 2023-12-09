@@ -1,5 +1,5 @@
 <!-- Init Switch Style Script -->
-<script id="switch-style">
+<script id="switch-style-script">
   function switchStyle() {
     const { query } = __RUNTIME__
     const parameter = decodeURIComponent('{{settings.parameter}}' || 'color')
@@ -16,18 +16,22 @@
       if (selectedColor) {
         const newStyle = document.createElement('style')
 
-        newStyle.innerHTML = `:root {
-        --background-action-primary: ${selectedColor};
-        --background-emphasis: ${selectedColor};
-        --text-action-primary: ${selectedColor};
-        --border-action-primary: ${selectedColor};
-      }`
+        let style = ':root {'
+        style += `\n  --background-action-primary: ${selectedColor};`
+        style += `\n  --background-emphasis: ${selectedColor};`
+        style += `\n  --text-action-primary: ${selectedColor};`
+        style += `\n  --text-emphasis: ${selectedColor};`
+        style += `\n  --border-action-primary: ${selectedColor};`
+        style += `\n  --border-emphasis: ${selectedColor};`
+        style += '\n}'
+
+        newStyle.innerHTML = style
 
         document.head.appendChild(newStyle)
       }
     }
   }
 
-  window.addEventListener('load', switchStyle)
+  window.addEventListener('DOMContentLoaded', switchStyle)
 </script>
 <!-- End Switch Style Script -->
